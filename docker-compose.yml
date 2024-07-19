@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  react-app:
+    image: node:alpine
+    container_name: trainning-demo-react
+    entrypoint: /bin/sh
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    tty: true

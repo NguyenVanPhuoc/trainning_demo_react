@@ -1,0 +1,14 @@
+@media screen and (max-width: 640px) {
+    .modal-container {
+        width: calc(100% - 2rem) !important;
+        border-radius: .5rem;
+    }
+
+    .modal-dialog-action {
+        flex-direction: row !important;
+    }
+
+    .modal-dialog-action button {
+        margin-top: 0;
+    }
+}
