@@ -1,7 +1,8 @@
 import {
   MdHome,
-  MdBarChart,
+  MdDensityMedium ,
   MdPerson,
+  MdControlPoint ,
 } from "react-icons/md";
 
 const sidebars = [
@@ -11,18 +12,18 @@ const sidebars = [
     path: "dashboard",
   },
   {
-    name: "Admin",
+    name: "Users",
     icon: MdPerson,
-    path: "admins",
+    path: "users",
     children: [
       {
         name: "List",
-        icon: MdBarChart,
+        icon: MdDensityMedium ,
         path: "",
       },
       {
         name: "Create",
-        icon: MdHome,
+        icon: MdControlPoint ,
         path: "create",
       },
     ],

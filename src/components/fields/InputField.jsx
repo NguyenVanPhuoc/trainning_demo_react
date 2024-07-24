@@ -97,7 +97,7 @@ function InputField(props) {
             />
           ))}
         {errorInput && (
-          <p className="mt-1 text-sm text-red-500">{errorInput}</p>
+          <p className="inline-block mt-1 text-sm text-red-500">{errorInput}</p>
         )}
       </div>
     </div>

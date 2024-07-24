@@ -33,15 +33,15 @@ const adminRoutes = [
     to: "dashboard",
   },
   {
-    path: "admins",
+    path: "users",
     component: Admin,
   },
   {
-    path: "admins/create",
+    path: "users/create",
     component: Create,
   },
   {
-    path: "admins/edit/:id",
+    path: "users/edit/:id",
     component: EditAdmin,
   },
 ];

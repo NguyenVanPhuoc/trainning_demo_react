@@ -21,18 +21,13 @@ const Admins = () => {
 
   const dispatch = useDispatch();
 
-  const account = useSelector((state) => state.admin);
-  const { admins, isLoading } = useSelector((state) => state.admin);
-
-  const columnsDataCheck = [
-    "id",
-    "full_name",
-    "email",
-    "address",
-    "status",
-  ];
-
+  const resultState = useSelector((state) => state.admin);
+  const { isLoading } = useSelector((state) => state.admin);
+  const [admins, setAdmins] = useState([]);
   const [status, setStatus] = useState(null);
+
+  const columnsDataCheck = [ "id", "full_name", "email", "address", "status"];
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -46,22 +41,27 @@ const Admins = () => {
   }, []);
 
   useEffect(() => {
-    if (account.messageSuccess) {
+    if (resultState.admins) {
+      setAdmins(resultState.admins)
+    }
+    if (resultState.messageSuccess) {
       toast({
         variant: "success",
-        title: account.messageSuccess,
+        title: resultState.messageSuccess,
       });
 
       dispatch(setState({messageSuccess: ""}));
     }
-  }, [account.messageSuccess]);
+  }, [resultState.admins, resultState.messageSuccess]);
 
   const deleteItem = (id) => {
     const choice = window.confirm(
       t("common:delete.confirm")
     );
     if (choice) {
-      dispatch(deleteAdmin(id));
+      dispatch(deleteAdmin(id)).then(() => {
+        setAdmins((prevAdmins) => prevAdmins.filter((admin) => admin.id !== id));
+      });
     }
   }
 
@@ -80,7 +80,7 @@ const Admins = () => {
           };
         })}
         onEdit={(id) => {
-          navigateTo(`/admin/admins/edit/${id}`);
+          navigateTo(`/admin/users/edit/${id}`);
         }}
         onDelete={(id) => {
           deleteItem(id);
@@ -94,7 +94,7 @@ const Admins = () => {
       <Button
         classExtra="p-5 h-10 rounded text-sm"
         onClick={() => {
-          navigateTo("/admin/admins/create");
+          navigateTo("/admin/users/create");
         }}
         btnDefault
       >

@@ -25,7 +25,7 @@ const Navbar = (props) => {
   }
 
   return (
-    <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
+    <nav className="sticky flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 pt-4 backdrop-blur-xl dark:bg-[#0b14374d]">
       <div className="ml-[6px]">
         <Breadcrumb />
         <p className="shrink text-[33px] capitalize text-navy-700 dark:text-white">

@@ -22,7 +22,7 @@ function Message(props) {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogAction className="bg-neutral-600 hover:bg-brand-600 m-auto" onClick={onDismiss}>{ dialogActionText }</AlertDialogAction>
+          <AlertDialogAction className="bg-neutral-700 hover:bg-neutral-600 m-auto" onClick={onDismiss}>{ dialogActionText }</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

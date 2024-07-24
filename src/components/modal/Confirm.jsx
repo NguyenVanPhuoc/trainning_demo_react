@@ -47,7 +47,7 @@ function Confirm(props) {
           <AlertDialogAction 
             onClick={onAction}
             disabled={isLoading}
-            className={`${isLoading ? "bg-gray-400 hover:bg-gray-400 active:bg-gray-400" : "bg-neutral-600 hover:bg-brand-600"}`}
+            className={`${isLoading ? "bg-neutral-400 hover:bg-neutral-400 active:bg-neutral-400" : "bg-neutral-700 hover:bg-neutral-600"}`}
           >
             { isLoading ? <LoadingDot /> : dialogActionText }
           </AlertDialogAction>

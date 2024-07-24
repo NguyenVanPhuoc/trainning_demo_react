@@ -48,7 +48,7 @@ const UploadFile = ({ fieldName, label, onFileChange, nameClass, extra, labelCla
         <label className="text-sm text-navy-700 dark:text-white font-bold">{label}</label>
       </div>
       <div className={`w-40 ${contentImageClass ?? ""}`}>
-        <Button onClick={handleUploadFile} classExtra={`mt-2 flex items-center justify-center rounded-md bg-neutral-600 p-3 text-white ${nameClass}`}>{ t("common:upload_file.title") }</Button>
+        <Button onClick={handleUploadFile} classExtra={`mt-2 flex items-center justify-center rounded-md bg-sky-600 p-3 text-white ${nameClass}`}>{ t("common:upload_file.title") }</Button>
         <input ref={inputRef} type="file" name={fieldName} onChange={handleImageChange} className="hidden" accept="image/*"/>
         {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         {imagePreview && <img src={imagePreview} alt="Preview" className="mt-4 w-40 h-40 rounded-full" />}

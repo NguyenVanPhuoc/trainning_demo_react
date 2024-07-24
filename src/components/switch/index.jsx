@@ -40,7 +40,7 @@ const Switch = (props) => {
           ? "checked:bg-indigo-500 dark:checked:bg-indigo-400"
           : color === "gray"
           ? "checked:bg-gray-500 dark:checked:bg-gray-400"
-          : "checked:bg-neutral-600 dark:checked:bg-brand-400"
+          : "checked:bg-sky-700 dark:checked:bg-sky-400"
       } ${extra}`}
       {...rest}
     />

@@ -1,5 +1,6 @@
 const Constants = {
   BASE_URL: import.meta.env.VITE_API_URL,
+  FILE_URL: import.meta.env.VITE_FILE_URL,
   PAGE_SIZE: 10,
   TYPE_IMAGES: ["image/jpeg", "image/jpg", "image/png", "image/gif"],
   DATE: {
@@ -8,16 +9,18 @@ const Constants = {
   },
   REGEX: {
     PASSWORD: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()\][{}<>|]).{8,}$/,
-    IS_EMOJI: /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g,
-    INTEGER_NUMBER: /^\d+$/,
-    DECIMAL_NUMBER: /^\d+(.\d+)?$/,
     EMAIL: /^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$/,
+    USERNAME: /^[a-z_]+$/,
+    IS_EMOJI: /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g,
+    PHONE: /^\d+$/
   },
   MIN: {
-    NAME: 6,
+    USERNAME: 6,
+    PHONE: 10,
   },
   MAX: {
-    NAME: 50,
+    USERNAME: 50,
+    PHONE: 12,
     COMMON: 50,
     CONTENT: 255,
     EMAIL: 255,
@@ -36,7 +39,23 @@ const Constants = {
     STATUS_VALUE: { 
       INACTIVE: 0, 
       ACTIVE: 1
-    }
+    },
+    OPTION_ROLE: [
+      { value: 1, label: "Quản trị viên" },
+      { value: 2, label: "Ban giám đốc" },
+      { value: 3, label: "Trưởng Khoa" },
+      { value: 4, label: "Nhân viên khoa phòng" },
+      { value: 5, label: "Trưởng khoa vật tư" },
+      { value: 6, label: "Nhân viên vật tư" },
+    ],
+    ROLE_VALUE: { 
+      ADMIN: 1, 
+      MANAGER: 2,
+      DEAN: 3,
+      NVKP: 4,
+      TKVT: 5,
+      NVVT: 6,
+    },
   },
 };
 
