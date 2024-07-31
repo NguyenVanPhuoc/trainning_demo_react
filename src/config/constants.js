@@ -41,12 +41,36 @@ const Constants = {
       ACTIVE: 1
     },
     OPTION_ROLE: [
-      { value: 1, label: "Quản trị viên" },
-      { value: 2, label: "Ban giám đốc" },
-      { value: 3, label: "Trưởng Khoa" },
-      { value: 4, label: "Nhân viên khoa phòng" },
-      { value: 5, label: "Trưởng khoa vật tư" },
-      { value: 6, label: "Nhân viên vật tư" },
+      { 
+        value: 1, 
+        label: "Quản trị viên",
+        name: "admin" 
+      },
+      { 
+        value: 2, 
+        label: "Ban giám đốc",
+        name: "manager" 
+      },
+      { 
+        value: 3, 
+        label: "Trưởng khoa",
+        name: "dean" 
+      },
+      { 
+        value: 4, 
+        label: "Nhân viên khoa phòng",
+        name: "nvkp"
+      },
+      { 
+        value: 5, 
+        label: "Trưởng khoa vật tư",
+        name: "tkvt" 
+      },
+      { 
+        value: 6, 
+        label: "Nhân viên vật tư",
+        name: "nvvt" 
+      },
     ],
     ROLE_VALUE: { 
       ADMIN: 1, 

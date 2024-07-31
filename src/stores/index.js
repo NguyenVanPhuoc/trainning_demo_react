@@ -13,10 +13,12 @@ import {
 import { combineReducers } from "redux";
 import adminAuthReducer from "./admin/authSlice";
 import adminReducer from "./admin/adminSlice.js";
+import departmentReducer from "./admin/departmentSlice";
 
 const rootReducers = combineReducers({
   adminAuth: adminAuthReducer,
   admin: adminReducer,
+  department: departmentReducer,
 });
 
 const persistConfig = {

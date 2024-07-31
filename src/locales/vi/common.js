@@ -8,6 +8,12 @@ export default {
   choose_status: "Chọn trạng thái",
   active: "Hoạt động",
   inactive: "Không Hoạt động",
+  admin: "Quản trị viên",
+  manager: "Ban giám đốc",
+  dean: "Trưởng khoa",
+  nvkp: "Nhân viên khoa phòng",
+  tkvt: "Trưởng khoa vật tư",
+  nvvt: "Nhân viên vật tư",
   createA: "Tạo mới",
   editA: "Chỉnh sửa",
   button: {

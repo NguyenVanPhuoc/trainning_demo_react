@@ -1,93 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Constants from "@/config/constants";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-
 import Button from "@/components/button";
 import InputField from "@/components/fields/InputField";
-import SelectBox from "@/components/selectBox";
-
 import Table from "@/components/tables";
 import { FaPlus } from "react-icons/fa";
-
 import { toast } from "@/components/ui/use-toast";
-import { list, deleteAdmin, setState } from "@/stores/admin/adminSlice";
+import { listDepartment, setState } from "@/stores/admin/departmentSlice";
 
-const Admins = () => {
+const Department = () => {
   const { t } = useTranslation();
 
   const navigateTo = useNavigate();
 
   const dispatch = useDispatch();
 
-  const resultState = useSelector((state) => state.admin);
-  const { isLoading } = useSelector((state) => state.admin);
-  const [admins, setAdmins] = useState([]);
-  const [status, setStatus] = useState(null);
+  const resultState = useSelector((state) => state.department);
+  const { isLoading } = useSelector((state) => state.department);
+  const [departments, setDepartments] = useState([]);
 
-  const columnsDataCheck = [ "id", "full_name", "email", "address", "role", "status"];
+  const columnsDataCheck = [ "id", "title", "email", "phone", "user_id"];
 
 
   const onSubmit = (e) => {
     e.preventDefault();
     const keyword = e.target.keyword.value ? `\\${e.target.keyword.value.trim()}` : "";
-  
-    dispatch(list({ keyword, status }));
+    dispatch(listDepartment({ keyword }));
   };
 
   useEffect(() => {
-    dispatch(list());
+    dispatch(listDepartment());
   }, []);
 
   useEffect(() => {
-    if (resultState.admins) {
-      setAdmins(resultState.admins);
+    if (resultState.departments) {
+      setDepartments(resultState.departments)
     }
     if (resultState.messageSuccess) {
       toast({
         variant: "success",
         title: resultState.messageSuccess,
       });
-  
+
       dispatch(setState({messageSuccess: ""}));
     }
-  }, [resultState.admins, resultState.messageSuccess]);
-
-  const deleteItem = (id) => {
-    const choice = window.confirm(
-      t("common:delete.confirm")
-    );
-    if (choice) {
-      dispatch(deleteAdmin(id)).then(() => {
-        setAdmins((prevAdmins) => prevAdmins.filter((admin) => admin.id !== id));
-      });
-    }
-  }
+  }, [resultState.departments, resultState.messageSuccess]);
 
   const TableElement = () => {
     return (
       <Table
-      isLoading={isLoading}
-      columnLangPage="admin"
-      columns={columnsDataCheck}
-      data={admins.map((item) => {
-          let valueRole = item.role - 1;
+        isLoading={isLoading}
+        columnLangPage="department"
+        columns={columnsDataCheck}
+        data={departments.map((item) => {
           return {
             ...item,
-            role: Constants.ADMIN.OPTION_ROLE[valueRole]
-              ? t(`common:${Constants.ADMIN.OPTION_ROLE[valueRole]["name"]}`)
-              : "",
-            status: Constants.ADMIN.STATUS[item.status]
-              ? t(`common:${Constants.ADMIN.STATUS[item.status]["label"]}`)
-              : "",
+            user_id: item.user_id
           };
         })}
         onEdit={(id) => {
-          navigateTo(`/admin/users/edit/${id}`);
-        }}
-        onDelete={(id) => {
-          deleteItem(id);
+          navigateTo(`/admin/departments/edit/${id}`);
         }}
       />
     );
@@ -98,7 +71,7 @@ const Admins = () => {
       <Button
         classExtra="p-5 h-10 rounded text-sm"
         onClick={() => {
-          navigateTo("/admin/users/create");
+          navigateTo("/admin/departments/create");
         }}
         btnDefault
       >
@@ -123,18 +96,6 @@ const Admins = () => {
               classLabel="font-bold"
               label={t("common:keyword")}
             />
-            <SelectBox
-              classNameExtra="sm:flex gap-2 items-center mt-3 sm:mt-0"
-              label={t("common:status")}
-              classLabel="font-bold"
-              classInput="!h-10 !mt-0 sm:w-44"
-              name="status"
-              placeholder={t("common:choose_status")}
-              onChangeSelect={(name, value) => setStatus(value)}
-              options={Constants.ADMIN.STATUS.map((item) => {
-                return { ...item, label: t(`common:${item.label}`) };
-              })}
-            />
             <Button
               type="submit"
               classExtra="p-5 h-10 rounded mt-3 sm:mt-0 text-sm"
@@ -153,4 +114,4 @@ const Admins = () => {
   );
 };
 
-export default Admins;
+export default Department;

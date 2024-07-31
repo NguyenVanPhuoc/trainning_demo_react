@@ -3,6 +3,7 @@ import {
   MdDensityMedium ,
   MdPerson,
   MdControlPoint ,
+  MdOutlineCorporateFare ,
 } from "react-icons/md";
 
 const sidebars = [
@@ -15,6 +16,23 @@ const sidebars = [
     name: "Users",
     icon: MdPerson,
     path: "users",
+    children: [
+      {
+        name: "List",
+        icon: MdDensityMedium ,
+        path: "",
+      },
+      {
+        name: "Create",
+        icon: MdControlPoint ,
+        path: "create",
+      },
+    ],
+  },
+  {
+    name: "Departments",
+    icon: MdOutlineCorporateFare,
+    path: "departments",
     children: [
       {
         name: "List",

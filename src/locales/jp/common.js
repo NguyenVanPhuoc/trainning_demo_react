@@ -8,6 +8,14 @@ export default {
   choose_status: "Chọn trạng thái",
   active: "Hoạt động",
   inactive: "Không Hoạt động",
+  admin: "Quản trị viên",
+  manager: "Ban giám đốc",
+  dean: "Trưởng khoa",
+  nvkp: "Nhân viên khoa phòng",
+  tkvt: "Trưởng khoa vật tư",
+  nvvt: "Nhân viên vật tư",
+  createA: "Tạo mới",
+  editA: "Chỉnh sửa",
   button: {
     back: "Trở lại",
     create: "Tạo mới",
@@ -15,11 +23,20 @@ export default {
     update: "Cập nhật",
   },
   field: {
-    name: "Tên",
+    username: "Username",
+    username_placeholder: "Nhập username",
+    full_name: "Họ và tên",
+    full_name_placeholder: "Nhập họ và tên",
     avatar: "Hình đại diện",
     birth_date: "Ngày sinh",
     image: "Hình ảnh",
     email: "Email",
+    phone: "Số điện thoại",
+    phone_placeholder: "Nhập số điện thoại",
+    address: "Địa chỉ",
+    address_placeholder: "Nhập địa chỉ",
+    role: "Phân quyền",
+    choose_role: "Chọn quyền",
     password: "Mật khẩu",
     password_confirm: "Mật khẩu confirm",
     old_password: "Mật khẩu cũ",
@@ -73,6 +90,14 @@ export default {
   delete: {
     confirm: "Bạn có chắc chắn muốn xóa không?",
     success: "Xóa thành công",
-    error: "Xóa thất bại"
+    error: "Xóa thất bại!"
+  },
+  create: {
+    success: "Tạo mới thành công",
+    error: "Tạo mới thất bại!"
+  },
+  edit: {
+    success: "Cập nhật thành công",
+    error: "Cập nhật thất bại!"
   },
 };

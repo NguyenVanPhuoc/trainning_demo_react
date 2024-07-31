@@ -3,6 +3,9 @@ import Dashboard from "@/pages/admin/Dashboard";
 import Admin from "@/pages/admin/Admin";
 import Create from "@/pages/admin/Admin/create";
 import EditAdmin from "@/pages/admin/Admin/edit";
+import Department from "@/pages/admin/Department";
+import CreateDepartment from "@/pages/admin/Department/create";
+import EditDepartment from "@/pages/admin/Department/edit";
 
 const authRoutesAdmin = [
   {
@@ -43,6 +46,18 @@ const adminRoutes = [
   {
     path: "users/edit/:id",
     component: EditAdmin,
+  },
+  {
+    path: "departments",
+    component: Department,
+  },
+  {
+    path: "departments/create",
+    component: CreateDepartment,
+  },
+  {
+    path: "departments/edit/:id",
+    component: EditDepartment,
   },
 ];
 

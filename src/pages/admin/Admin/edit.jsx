@@ -66,6 +66,7 @@ function Edit() {
       .filter(Boolean)
     );
     handleChangeData("birth_date", data.birth_date);
+    handleChangeData("role", data.role);
     dispatch(updateAdmin({ data: newData, id: params.id }));
   };
 
@@ -74,6 +75,7 @@ function Edit() {
     dispatch(editAdmin(params.id)).then((response) => {
       if (response && response.payload) {
         handleChangeData("birth_date", response.payload.birth_date ? moment(response.payload.birth_date).format(Constants.DATE.FORMAT_SHOW_DATE) : null);
+        handleChangeData("role", response.payload.role);
       }
     });
     if (messageError) {
