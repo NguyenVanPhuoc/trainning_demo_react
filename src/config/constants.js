@@ -1,6 +1,5 @@
 const Constants = {
   BASE_URL: import.meta.env.VITE_API_URL,
-  FILE_URL: import.meta.env.VITE_FILE_URL,
   PAGE_SIZE: 10,
   TYPE_IMAGES: ["image/jpeg", "image/jpg", "image/png", "image/gif"],
   DATE: {
